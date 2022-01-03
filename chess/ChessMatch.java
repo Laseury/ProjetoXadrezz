@@ -10,6 +10,7 @@ public class ChessMatch {
     private Board board;
 
     public ChessMatch(){
+        //A partida inicia aqui
         board =  new Board(8,8);
         initialSetup();
 
@@ -29,6 +30,7 @@ public class ChessMatch {
     }
 
     private void initialSetup(){
+        //Onde as peças irão se localizar
         board.placePiece(new Rook(board, Color.WHITE), new Position(2,1) );
     }
 }
