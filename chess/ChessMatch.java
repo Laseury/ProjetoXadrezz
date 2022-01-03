@@ -28,9 +28,15 @@ public class ChessMatch {
         }
         return mat;
     }
+    private void placeNewPiece(char column, int row, ChessPiece piece){
+        //Define onde as novas peças irão ficar pelo metodo ChessPostion
+        board.placePiece(piece, new ChessPosition(column, row).toPosition());
+    }
 
     private void initialSetup(){
-        //Onde as peças irão se localizar
-        board.placePiece(new Rook(board, Color.WHITE), new Position(2,1) );
+        //Onde as peças irão se localizar, e colocar as peças pelo metodo placeNewPiece
+        placeNewPiece('b', 6 , new Rook(board, Color.WHITE));
+        placeNewPiece('b', 7, new Rook(board, Color.BLACK));
+
     }
 }
