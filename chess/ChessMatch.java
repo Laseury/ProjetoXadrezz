@@ -48,9 +48,12 @@ public class ChessMatch {
     }
 
     private void validadeSourcePosition(Position position){
-        //Metodo para verificar o local da peça
+        //Metodo para verificar o local da peça, antes de mover uma peça
         if(!board.thereIsAPiece(position)){
             throw new ChessException("Não existe peça na posição de origem");
+        }
+        if(board.piece(position).isThereAnyPossibleMove()){
+            throw new ChessException("Não existe movimentos possiveis para a peça escolhida");
         }
     }
 
