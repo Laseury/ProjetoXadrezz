@@ -33,7 +33,7 @@ public class ChessMatch {
     public boolean[][] possibleMoves(ChessPosition sourcePosition){
         //Imprimir as posições possivel a partir de uma posição origem
         Position position = sourcePosition.toPosition();
-        validadeSourcePosition(position);
+        validateSourcePosition(position);
         return board.piece(position).possibleMoves();
     }
 
@@ -42,7 +42,7 @@ public class ChessMatch {
         Position source = sourcePositon.toPosition();
         Position target = targetPosition.toPosition();
 
-        validadeSourcePosition(source);
+        validateSourcePosition(source);
         validateTargetPosition(source, target);
         Piece capturedPiece =  makeMove(source, target);
         return (ChessPiece) capturedPiece;
@@ -50,12 +50,12 @@ public class ChessMatch {
 
     private Piece makeMove(Position source, Position target){
         Piece p =  board.removePiece(source);
-        Piece capturedPieced = board.removePiece(target);
+        Piece capturedPiece = board.removePiece(target);
         board.placePiece(p, target);
-        return capturedPieced;
+        return capturedPiece;
     }
 
-    private void validadeSourcePosition(Position position){
+    private void validateSourcePosition(Position position){
         //Metodo para verificar o local da peça, antes de mover uma peça
         if(!board.thereIsAPiece(position)){
             throw new ChessException("Não existe peça na posição de origem");
@@ -72,14 +72,15 @@ public class ChessMatch {
     }
 
     private void placeNewPiece(char column, int row, ChessPiece piece){
-        //Define onde as novas peças irão ficar pelo metodo ChessPostion
+        //Define onde as novas peças irão ficar pelo metodo ChessPosition
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
 
     private void initialSetup(){
         //Onde as peças irão se localizar, e colocar as peças pelo metodo placeNewPiece
-        placeNewPiece('a', 1, new Rook(board, Color.WHITE));
-        placeNewPiece('a', 8, new Rook(board, Color.BLACK));
+        //placeNewPiece('a', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('b', 3, new Rook(board, Color.BLACK));
+        placeNewPiece('c', 5, new Rook(board, Color.WHITE));
         /*placeNewPiece('b', 1, new Knight(board, Color.WHITE));
         placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
         placeNewPiece('d', 1, new Queen(board, Color.WHITE));

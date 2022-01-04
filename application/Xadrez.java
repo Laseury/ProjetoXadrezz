@@ -21,9 +21,9 @@ public class Xadrez {
                 System.out.println("Origem: ");
                 ChessPosition source = UI.readChessPosition(sc);
 
-                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                /*boolean[][] possibleMoves = chessMatch.possibleMoves(source);
                 UI.clearScreen();
-                UI.printBoard(chessMatch.getPieces(), possibleMoves);
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);*/
 
 
                 System.out.println();
