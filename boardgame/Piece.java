@@ -11,6 +11,7 @@ public abstract class Piece {
     }
 
     protected Board getBoard() {
+        //Protected para que somente as clases de dentro do pacote possam ter interações
         return board;
     }
 

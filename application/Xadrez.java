@@ -1,4 +1,5 @@
 package application;
+import boardgame.Position;
 import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -21,9 +22,9 @@ public class Xadrez {
                 System.out.println("Origem: ");
                 ChessPosition source = UI.readChessPosition(sc);
 
-                /*boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
                 UI.clearScreen();
-                UI.printBoard(chessMatch.getPieces(), possibleMoves);*/
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);
 
 
                 System.out.println();
@@ -40,6 +41,7 @@ public class Xadrez {
                 System.out.println(e.getMessage());
                 sc.nextLine();
             }
+            }
         }
     }
-}
+
